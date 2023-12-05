@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
-import { Reviewbox, Reviewtext, StyledButton1, StyledButton2, StyledButton3, StyledButton4, SubmitBtn } from '../components/Review/Reviewcomponent';
+import { ReviewPage, Reviewbox, Reviewtext, StyledButton1, StyledButton2, StyledButton3, StyledButton4, SubmitBtn } from '../components/Review/Reviewcomponent';
 import axios from 'axios';
+import Header from '../components/Header/Header';
+import { HeaderBorder } from '../components/Header/Component';
 
 const Review = () => {
   const [rating, setRating] = useState(0);
@@ -37,9 +39,13 @@ const Review = () => {
   };
 
   return (
+    <>
+    <Header transparent/>
+    <HeaderBorder/>
+    <ReviewPage>
     <Reviewbox>
-      <div>
-        <Reviewtext>별점</Reviewtext>
+    <Reviewtext>별점</Reviewtext>
+      <div className='ratingBox'>
         {[1, 2, 3, 4, 5].map((star) => (
           <span
             key={star}
@@ -51,16 +57,22 @@ const Review = () => {
         ))}
       </div>
       <Reviewtext>추천 대상</Reviewtext>
+      <div className='targetBox'>
       <StyledButton1 onClick={() => handleButtonClick('20대')}>20대</StyledButton1>
       <StyledButton2 onClick={() => handleButtonClick('30대')}>30대</StyledButton2>
       <StyledButton3 onClick={() => handleButtonClick('40-50대')}>40-50대</StyledButton3>
       <StyledButton4 onClick={() => handleButtonClick('60대 이상')}>60대 이상</StyledButton4>
+      </div>
+      <div className='contextInput'>
       <Reviewtext>내용 작성</Reviewtext>
       <div className='reviewTextInput'>
         <input type='text' onChange={handleTextInputChange} />
       </div>
+      </div>
       <SubmitBtn onClick={handleSubmit}>Submit</SubmitBtn>
     </Reviewbox>
+    </ReviewPage>
+    </>
   );
 };
 

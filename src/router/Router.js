@@ -4,6 +4,7 @@ import Root from "../pages/Root";
 import GptPage from "../pages/GptPage";
 import GptTest from "../pages/test/GptTest";
 import AppGptChat from "../pages/AppGptChat";
+import Review from "../pages/Review";
 
 
 
@@ -23,6 +24,10 @@ const router = createBrowserRouter([
       {
         path: "GptChat",
         element: <AppGptChat/>,
+      },
+      {
+        path: "Review",
+        element: <Review/>
       }
     ],
   },

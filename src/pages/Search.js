@@ -7,7 +7,9 @@ const TravelPlaceInfo = () => {
 
   const fetchData = async () => {
     try {
-      const response = await fetch();
+      const response = await fetch(
+        `https://apis.data.go.kr/B551011/KorService1/searchKeyword1?serviceKey=pPM2VrV7r3IwxAFI87FWbmu2fU3hy8eCslZyp39YTXfpn8XgrMIRLmMYpk6Vvpic15howkhlzMKfieBlGbOhPA%3D%3D&numOfRows=10&pageNo=1&MobileOS=ETC&MobileApp=AppTest&_type=json&listYN=Y&arrange=A&keyword=${searchTerm}&contentTypeId=12`
+      );
       if (!response.ok) {
         throw new Error("데이터를 불러오는 중 문제가 발생했습니다.");
       }

@@ -3,7 +3,7 @@ import axios from 'axios';
 const chat = async (prompt, onMessage) => {
   const headers = {
     'Content-Type': 'application/json',
-    Authorization: 'Bearer sk-',
+    Authorization: 'Bearer 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',
   };
   const messages = [{ role: 'user', content: prompt }];
 
@@ -31,7 +31,7 @@ const chat = async (prompt, onMessage) => {
 const chatHistory = async (prompt, messages, onMessage) => {
   const headers = {
     'Content-Type': 'application/json',
-    Authorization: 'Bearer sk-',
+    Authorization: 'Bearer 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',
   };
   console.log('과거기역 : ', messages);
   console.log('질의 : ', prompt);
@@ -61,7 +61,7 @@ const chatHistory = async (prompt, messages, onMessage) => {
 const dalle = async (prompt, onMessage, n = 1, size = '256x256') => {
   const headers = {
     'Content-Type': 'application/json',
-    Authorization: 'Bearer sk-',
+    Authorization: 'Bearer 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',
   };
 
   axios

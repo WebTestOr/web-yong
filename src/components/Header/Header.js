@@ -26,15 +26,17 @@ const HeaderImg = styled.img`
 
 const Header = ({ transparent }) => {
   return (
-    <HeaderStyle transparent={transparent}>
-      <nav>
-        <HeaderLink to="/search">Search</HeaderLink>
-        <HeaderLink to="/Chatgpt">Chat GPT</HeaderLink>
-        <HeaderImg src='./img/logoImg.png' alt='로고이미지' />
-        <HeaderLink to="/services">My List</HeaderLink>
-        <HeaderLink to="/Review">Review</HeaderLink>
-      </nav>
-    </HeaderStyle>
+    <>
+      <HeaderStyle transparent={transparent}>
+        <nav>
+          <HeaderLink to="/search">Search</HeaderLink>
+          <HeaderLink to="/Chatgpt">Chat GPT</HeaderLink>
+          <HeaderImg src='./img/logoImg.png' alt='로고이미지' />
+          <HeaderLink to="/services">My List</HeaderLink>
+          <HeaderLink to="/Review">Review</HeaderLink>
+        </nav>
+      </HeaderStyle>
+    </>
   );
 };
 

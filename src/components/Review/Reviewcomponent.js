@@ -12,8 +12,7 @@ const Reviewbox = styled.div`
 width: 1200px;
 height: 700px;
 border-radius: 50px;
-background: linear-gradient(180deg, #AFE6E4 0%, rgba(175, 230, 228, 0.00) 100%);
-box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+background: ${(props) => props.backgroundColor || 'linear-gradient(180deg, #AFE6E4 0%, rgba(175, 230, 228, 0.00) 100%)'};box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
 margin-top: 78px;
 display: flex;
 flex-direction: column;

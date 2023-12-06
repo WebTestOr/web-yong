@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { ReviewPage, Reviewbox, Reviewtext, StyledButton1, StyledButton2, StyledButton3, StyledButton4, SubmitBtn } from '../components/Review/Reviewcomponent';
 import axios from 'axios';
 import Header from '../components/Header/Header';
@@ -70,6 +71,9 @@ const Review = () => {
       </div>
       </div>
       <SubmitBtn onClick={handleSubmit}>Submit</SubmitBtn>
+      <Link to="/reviewlist">
+            <button>후기 보러 가기</button>
+      </Link>
     </Reviewbox>
     </ReviewPage>
     </>

@@ -2,7 +2,7 @@ import React, { useState, useRef } from 'react';
 import { chat } from './openai';
 
 export default function AppGptChat() {
-  const [text, setText] = useState('hello');
+  const [text, setText] = useState('겨울에 놀러가기 좋은 한국 명소 추천해줘!');
   const [message, setMessage] = useState('');
   const refText = useRef();
 

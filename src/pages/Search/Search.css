@@ -1,0 +1,41 @@
+.Main {
+  display: flex;
+  height: 100vh;
+}
+
+.SearchForm {
+  width: 50%;
+  height: 100%;
+  background-color: rebeccapurple;
+  overflow: hidden;
+  text-align: center;
+}
+
+.SearchForm > .SearchText {
+  width: 60%;
+  padding: 20px;
+  font-size: 28px;
+  border-radius: 50px;
+}
+.SearchForm > .SearchButton {
+  position: absolute;
+  top: 13pc;
+  left: 45pc;
+}
+
+main {
+  width: 50%;
+  text-align: center;
+  overflow-y: auto;
+  background-color: red;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+li {
+  margin-bottom: 20px;
+}

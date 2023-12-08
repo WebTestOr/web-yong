@@ -1,37 +1,37 @@
 import React, { useState } from 'react';
 
 const MyList = () => {
-  const [todos, setTodos] = useState([]);
-  const [newTodo, setNewTodo] = useState('');
+  const [list, setList] = useState([]);
+  const [newList, setNewList] = useState('');
 
-  const addTodo = () => {
-    if (newTodo.trim() !== '') {
-      setTodos([...todos, newTodo]);
-      setNewTodo('');
+  const addList = () => {
+    if (newList.trim() !== '') {
+      setList([...list, newList]);
+      setNewList('');
     }
   };
 
-  const deleteTodo = (index) => {
-    const updatedTodos = todos.filter((_, i) => i !== index);
-    setTodos(updatedTodos);
+  const deleteList = (index) => {
+    const updatedList = list.filter((_, i) => i !== index);
+    setList(updatedList);
   };
 
   return (
     <div>
-      <h1>투두 리스트</h1>
+      <h1>즐겨찾기</h1>
       <input
         type="text"
-        value={newTodo}
-        onChange={(e) => setNewTodo(e.target.value)}
-        placeholder="할 일을 입력하세요"
+        value={newList}
+        onChange={(e) => setNewList(e.target.value)}
+        placeholder="추가할 장소를 입력하세요."
       />
-      <button onClick={addTodo}>추가</button>
+      <button onClick={addList}> + 즐겨찾기 추가</button>
       <ul>
-        {todos.map((todo, index) => (
-          <li key={index}>
-            {todo}
-            <button onClick={() => deleteTodo(index)}>삭제</button>
-          </li>
+        {list.map((item, index) => (
+          <p key={index}>
+            {item}
+            <button onClick={() => deleteList(index)}>삭제</button>
+          </p>
         ))}
       </ul>
     </div>

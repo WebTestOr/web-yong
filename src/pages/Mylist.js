@@ -1,6 +1,22 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 
+const MyListWrapper = styled.div`
+  position: absolute;
+  top: 176px;
+  right: 0;
+  width: 400px;
+  height: 100vh;
+  overflow-y: auto;
+  background-color: #fff;
+`;
+
+const HeaderStyle = styled.div`
+  width: 400px;
+  height: 176px;
+  text-align: center;
+`;
+
 const MyList = () => {
   const [list, setList] = useState([]);
   const [newList, setNewList] = useState('');
@@ -17,15 +33,8 @@ const MyList = () => {
     setList(updatedList);
   };
 
-  const HeaderStyle = styled.div`
-
-    width: 400px;
-    height: 176px;
-    text-align: center;
-  `;
-
   return (
-    <div>
+    <MyListWrapper>
       <HeaderStyle>
         <h1>즐겨찾기</h1>
         <input
@@ -36,16 +45,17 @@ const MyList = () => {
         />
         <button onClick={addList}> + 즐겨찾기 추가</button>
       </HeaderStyle>
-      <ul>
+      <div>
         {list.map((item, index) => (
           <p key={index}>
             {index + 1}. {item}
             <button onClick={() => deleteList(index)}>삭제</button>
           </p>
         ))}
-      </ul>
-    </div>
+      </div>
+    </MyListWrapper>
   );
+
 };
 
 export default MyList;

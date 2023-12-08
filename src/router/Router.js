@@ -7,8 +7,7 @@ import AppGptChat from "../pages/AppGptChat";
 import Review from "../pages/Review";
 import ReviewList from "../pages/ReviewList";
 import TravelPlaceInfo from "../pages/Search";
-
-
+import  MyList from "../pages/Mylist";
 
 const router = createBrowserRouter([
   {
@@ -21,6 +20,7 @@ const router = createBrowserRouter([
       },
       {
         path: "GptTest",
+
         element: <GptTest/>,
       },
       {
@@ -38,7 +38,11 @@ const router = createBrowserRouter([
       {
         path: "TravelInfo",
         element: <TravelPlaceInfo/>
-      }
+      },
+      {
+        path: "services",
+        element: <MyList/>,
+      },
     ],
   },
 ]);

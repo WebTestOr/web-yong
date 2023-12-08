@@ -1,0 +1,80 @@
+.Main {
+  display: flex;
+  height: 80vh;
+}
+
+.SearchForm {
+  width: 40%;
+  margin: 0px 100px;
+  overflow: hidden;
+  text-align: center;
+}
+
+.SearchForm > label > .SearchText {
+  width: 70%;
+  margin: 30px 0px;
+  padding: 20px;
+  padding-right: 100px;
+  border-radius: 50px;
+  border: 2px solid #8faad2;
+  background-color: #f3fbfb;
+  font-size: 28px;
+  text-align: right;
+}
+.SearchForm > label > .SearchButton {
+  position: absolute;
+  background: none;
+  border: none;
+  padding: 0px;
+  top: 14pc;
+  left: 46pc;
+}
+.SearchForm > label > .SearchButton > .searchImg {
+  width: 40px;
+  height: 40px;
+}
+
+.SearchForm > .buttonList {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+main {
+  width: 50%;
+  text-align: center;
+  overflow-y: auto;
+  display: flex;
+  justify-content: center;
+  background: linear-gradient(#b2c9ea, white);
+}
+.visible {
+  display: block;
+}
+.hidden {
+  display: none;
+}
+ul {
+  margin: 50px;
+  list-style: none;
+  padding: 0;
+}
+
+li > .placeImg {
+  width: 600px;
+  height: 500px;
+}
+
+.prevButton {
+  border: none;
+  background: none;
+  margin-right: auto;
+  margin-left: 20px;
+}
+.nextButton {
+  border: none;
+  background: none;
+  margin-right: 20px;
+  margin-left: auto;
+}

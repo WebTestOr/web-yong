@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import styled from "styled-components";
+import MyList from '../../pages/Mylist';
 
 const HeaderStyle = styled.div`
   width: 1920px;
@@ -29,6 +30,12 @@ const HeaderImg = styled.img`
 `;
 
 const Header = ({ transparent }) => {
+  const [showMyList, setShowMyList] = useState(false);
+
+  const handleToggleMyList = () => {
+    setShowMyList(!showMyList);
+  };
+
   return (
     <>
       <HeaderStyle transparent={transparent}>
@@ -39,9 +46,11 @@ const Header = ({ transparent }) => {
             <HeaderImg src='./img/logoImg.png' alt='로고이미지' />
           </HeaderImgLink>
           <HeaderLink to="/services">My List</HeaderLink>
+          <HeaderLink onClick={handleToggleMyList}>My List</HeaderLink>
           <HeaderLink to="/Review">Review</HeaderLink>
         </nav>
       </HeaderStyle>
+      {showMyList && <MyList />}
     </>
   );
 };

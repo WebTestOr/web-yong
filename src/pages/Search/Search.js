@@ -15,9 +15,7 @@ export default function TravelPlaceInfo() {
 
   const fetchData = async () => {
     try {
-      const response = await fetch(
-        `https://apis.data.go.kr/B551011/KorService1/searchKeyword1?serviceKey=pPM2VrV7r3IwxAFI87FWbmu2fU3hy8eCslZyp39YTXfpn8XgrMIRLmMYpk6Vvpic15howkhlzMKfieBlGbOhPA%3D%3D&numOfRows=10&pageNo=1&MobileOS=ETC&MobileApp=AppTest&_type=json&listYN=Y&arrange=A&keyword=${searchText}&contentTypeId=12`
-      );
+      const response = await fetch(``);
 
       const data = await response.json();
       const items = data.response.body.items.item;

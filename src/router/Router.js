@@ -5,7 +5,7 @@ import ChatGpt from "../pages/GptPage";
 import GptTest from "../pages/test/GptTest";
 import AppGptChat from "../pages/AppGptChat";
 import Review from "../pages/Review";
-import TravelPlaceInfo from "../pages/Search/Search";
+import TravelPlaceInfo from "../pages/Search";
 
 const router = createBrowserRouter([
   {
@@ -18,20 +18,21 @@ const router = createBrowserRouter([
       },
       {
         path: "GptTest",
-        element: <GptTest />,
+
+        element: <GptTest/>,
       },
       {
         path: "GptChat",
-        element: <AppGptChat />,
+        element: <AppGptChat/>,
       },
       {
         path: "Review",
-        element: <Review />,
+        element: <Review/>
       },
       {
         path: "TravelInfo",
-        element: <TravelPlaceInfo />,
-      },
+        element: <TravelPlaceInfo/>
+      }
     ],
   },
 ]);

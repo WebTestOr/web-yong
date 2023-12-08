@@ -1,77 +1,146 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Header from "../../components/Header/Header";
-import Search from "./Search.css";
+import "./Search.css";
+import {
+  StyledButton1,
+  StyledButton2,
+  StyledButton3,
+  StyledButton4,
+} from "../../components/Review/Reviewcomponent";
 
 export default function TravelPlaceInfo() {
   const [places, setPlaces] = useState([]);
-  const [error, setError] = useState(null);
-  const [searchTerm, setSearchTerm] = useState("");
-  const [displayCount, setDisplayCount] = useState(5);
+  const [searchText, setSearchText] = useState("");
+  const [currentIndex, setCurrentIndex] = useState(0);
 
-  const handleLoadMore = () => {
-    setDisplayCount((prevCount) => prevCount + 1);
-  };
   const fetchData = async () => {
     try {
-      const response = await fetch();
-      if (!response.ok) {
-        throw new Error("데이터를 불러오는 중 문제가 발생했습니다.");
-      }
+      const response = await fetch(
+        `https://apis.data.go.kr/B551011/KorService1/searchKeyword1?serviceKey=pPM2VrV7r3IwxAFI87FWbmu2fU3hy8eCslZyp39YTXfpn8XgrMIRLmMYpk6Vvpic15howkhlzMKfieBlGbOhPA%3D%3D&numOfRows=10&pageNo=1&MobileOS=ETC&MobileApp=AppTest&_type=json&listYN=Y&arrange=A&keyword=${searchText}&contentTypeId=12`
+      );
 
       const data = await response.json();
       const items = data.response.body.items.item;
 
       setPlaces(items);
-      setError(null);
     } catch (error) {
-      console.error("데이터 요청 중 오류 발생:", error);
       setPlaces([]);
-      setError("데이터를 불러오는 중 문제가 발생했습니다.");
     }
   };
 
+  const handlePrevious = () => {
+    setCurrentIndex((prevIndex) => Math.max(prevIndex - 1, 0));
+  };
+
+  const handleNext = () => {
+    setCurrentIndex((prevIndex) =>
+      prevIndex < places.length - 1 ? prevIndex + 1 : 0
+    );
+  };
   const handleSearch = (e) => {
-    setSearchTerm(e.target.value);
+    setSearchText(e.target.value);
   };
 
   const handleSubmit = () => {
     fetchData();
   };
 
+  const handleSearchText = (text) => {
+    setSearchText(text);
+  };
   return (
     <div>
       <Header />
       <div className="Main">
         <aside className="SearchForm">
-          <input
-            className="SearchText"
-            type="text"
-            value={searchTerm}
-            onChange={handleSearch}
-            placeholder="여행지를 검색하세요"
-          />
-          <button type="button" className="SearchButton" onClick={handleSubmit}>
-            <img src="./img/search.png" />
-          </button>
+          <label>
+            <input
+              className="SearchText"
+              type="text"
+              value={searchText}
+              onChange={handleSearch}
+              placeholder="여행지를 검색하세요"
+            />
+            <button
+              type="button"
+              className="SearchButton"
+              onClick={handleSubmit}
+            >
+              <img src="./img/search.png" className="searchImg" />
+            </button>
+          </label>
+          <div className="buttonList">
+            <StyledButton1
+              style={{ width: "10pc", height: "3pc", margin: "5px 10px" }}
+              onClick={() => handleSearchText("가로수길")}
+            >
+              가로수길
+            </StyledButton1>
+            <StyledButton2
+              style={{
+                width: "10pc",
+                height: "3pc",
+                margin: "5px 10px",
+                flexGrow: "1",
+              }}
+              onClick={() => handleSearchText("해수욕장")}
+            >
+              해수욕장
+            </StyledButton2>
+            <StyledButton3
+              style={{ width: "10pc", height: "3pc", margin: "5px 10px" }}
+              onClick={() => handleSearchText("박물관")}
+            >
+              박물관
+            </StyledButton3>
+            <StyledButton4
+              style={{ width: "5pc", height: "3pc", margin: "5px 10px" }}
+              onClick={() => handleSearchText("숲")}
+            >
+              숲
+            </StyledButton4>
+            <StyledButton2
+              style={{ width: "10pc", height: "3pc", margin: "5px 10px" }}
+              onClick={() => handleSearchText("카페")}
+            >
+              카페
+            </StyledButton2>
+
+            <StyledButton4
+              style={{ width: "10pc", height: "3pc", margin: "5px 10px" }}
+              onClick={() => handleSearchText("수산 시장")}
+            >
+              수산 시장
+            </StyledButton4>
+          </div>
         </aside>
         <main>
+          <button onClick={handlePrevious} className="prevButton">
+            <img src="./img/prev.png" alt="prev" />
+          </button>
           <ul>
             {places &&
-              places.slice(0, displayCount).map((place, index) => (
-                <li key={index}>
-                  <img src={place.firstimage} alt={`이미지_${place.title}`} />
+              places.map((place, index) => (
+                <li
+                  key={index}
+                  className={index === currentIndex ? "visible" : "hidden"}
+                >
+                  <img
+                    src={place.firstimage}
+                    alt={`${place.title}`}
+                    className="placeImg"
+                  />
                   <h2>{place.title}</h2>
                   <p>
                     주소: {place.addr1} {place.addr2}
                   </p>
-                  <p>지역 코드: {place.areacode}</p>
                   <p>주소1: {place.addr1}</p>
                 </li>
               ))}
           </ul>
-          {displayCount < places.length && (
-            <button onClick={handleLoadMore}>Load More</button>
-          )}
+          <button onClick={handleNext} className="nextButton">
+            <img src="./img/next.png" alt="next" />
+          </button>
         </main>
       </div>
     </div>

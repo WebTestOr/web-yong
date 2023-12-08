@@ -1,45 +1,49 @@
-import React, { useState, useRef } from 'react';
+// AppGptChat.js
+import React, { useState, useRef, useEffect } from 'react';
 import { chat } from './openai';
+import { ChatContainer, MessageContainer, InputContainer, Input, Button, MessageLine } from '../components/Chatgpt/gptchatcomponent';
 
-export default function AppGptChat() {
-  const [text, setText] = useState('hello');
+const AppGptChat = ({ selectedBtnText }) => {
+  const [text, setText] = useState(selectedBtnText || '겨울에 놀러가기 좋은 한국 명소 추천해줘!');
   const [message, setMessage] = useState('');
   const refText = useRef();
+
+  useEffect(() => {
+    // Update text when selectedBtnText changes
+    setText(selectedBtnText || '겨울에 놀러가기 좋은 한국 명소 추천해줘!');
+  }, [selectedBtnText]);
 
   const sendChat = () => {
     const prompt = text;
     setText('');
     refText.current.focus();
-    setMessage((message) => message + 'Q:' + text + '\n');
+    setMessage((message) => message + 'ME:' + text + '\n');
     chat(prompt, (result) => {
       console.log('==>', result);
-      setMessage((message) => message + 'A:' + result + '\n');
+      setMessage((message) => message + 'AI:' + result + '\n');
     });
   };
 
   return (
-    <div style={{ flex: 1 }}>
-      <div style={{ flex: 10 }}>
-        <div>{message}</div>
-      </div>
-
-      <div style={{ flex: 3 }}>
-        <div style={{ flexDirection: 'row' }}>
-          <input
-            type="text"
-            style={{
-              width: 300,
-              fontSize: 15,
-              borderColor: 'red',
-              borderWidth: 2,
-            }}
-            onChange={(evt) => setText(evt.target.value)}
-            ref={refText}
-            value={text}
-          />
-          <button onClick={() => sendChat()}>Send</button>
-        </div>
-      </div>
-    </div>
+    <ChatContainer>
+      {message && (
+        <MessageContainer>
+          {message.split('\n').map((line, index) => (
+            line.trim() !== '' && <MessageLine key={index}>{line}</MessageLine>
+          ))}
+        </MessageContainer>
+      )}
+      <InputContainer>
+        <Input
+          type="text"
+          onChange={(evt) => setText(evt.target.value)}
+          ref={refText}
+          value={text}
+        />
+        <Button onClick={() => sendChat()}>Send</Button>
+      </InputContainer>
+    </ChatContainer>
   );
-}
+};
+
+export default AppGptChat;

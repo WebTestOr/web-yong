@@ -45,7 +45,6 @@ const Header = ({ transparent }) => {
           <HeaderImgLink to="/">
             <HeaderImg src='./img/logoImg.png' alt='로고이미지' />
           </HeaderImgLink>
-          <HeaderLink to="/services">My List</HeaderLink>
           <HeaderLink onClick={handleToggleMyList}>My List</HeaderLink>
           <HeaderLink to="/Review">Review</HeaderLink>
         </nav>

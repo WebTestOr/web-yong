@@ -17,20 +17,19 @@ const HeaderStyle = styled.div`
   text-align: center;
 `;
 
-const MyList = () => {
-  const [list, setList] = useState([]);
+const MyList = ({ places, setPlaces, myList, setMyList }) => {
   const [newList, setNewList] = useState('');
 
   const addList = () => {
     if (newList.trim() !== '') {
-      setList([...list, newList]);
+      setMyList([...myList, { title: newList, type: 'list' }]);
       setNewList('');
     }
   };
 
   const deleteList = (index) => {
-    const updatedList = list.filter((_, i) => i !== index);
-    setList(updatedList);
+    const updatedList = myList.filter((_, i) => i !== index);
+    setMyList(updatedList); // setMyList로 업데이트
   };
 
   return (
@@ -46,16 +45,15 @@ const MyList = () => {
         <button onClick={addList}> + 즐겨찾기 추가</button>
       </HeaderStyle>
       <div>
-        {list.map((item, index) => (
+        {myList && myList.map((item, index) => (
           <p key={index}>
-            {index + 1}. {item}
+            {index + 1}. {item.type === 'place' ? item.title : item.title}
             <button onClick={() => deleteList(index)}>삭제</button>
           </p>
         ))}
       </div>
     </MyListWrapper>
   );
-
 };
 
 export default MyList;

@@ -4,8 +4,10 @@ const GptContainer = styled.div`
 display: flex;
 justify-content: space-between;
 align-items: flex-start;
+.GptLeftBox{
+    margin-bottom: 8px;
+}
 `;
-
 
 const GptTitle = styled.text`
 color: #000;

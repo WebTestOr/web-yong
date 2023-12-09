@@ -4,7 +4,7 @@ import styled from "styled-components";
 import MyList from '../../pages/Mylist';
 
 const HeaderStyle = styled.div`
-  width: 1920px;
+  width: 100%;
   height: 176px;
   text-align: center;
   background: ${(props) => (props.transparent ? 'transparent' : '#8FAAD2')};

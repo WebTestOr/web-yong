@@ -1,51 +1,98 @@
-import React from "react";
-import { Carousel } from "react-responsive-carousel";
-import "react-responsive-carousel/lib/styles/carousel.min.css";
+import React, { useState, useEffect } from 'react';
+import './Carousel.css'; 
 
-function CarouselComponent() {
+const Carousel = () => {
+  const [current, setCurrent] = useState(0);
   const images = [
-    { url: "https://a.cdn-hotels.com/gdcs/production20/d355/79e1a288-fc93-4891-a037-43dc13453899.jpg?impolicy=fcrop&w=1600&h=1066&q=medium" },
-    { url: "https://post-phinf.pstatic.net/MjAxODExMjJfMjE3/MDAxNTQyODY3MTY5ODY2.JLUg3UiKTBjdKc-3TOCpdu7NjqQ65zWTyvgyySWi6nog.2q2tH5FbZpNqqesqYv1o1MMXaaQ4RXJYJ5fcs6A7mQsg.JPEG/%ED%95%98%EC%9D%B4%EC%9B%90.jpg?type=w1200" },
-    { url: "https://lh3.googleusercontent.com/p/AF1QipP65tsdPGmd-t4edkw-hVsjGXmLY7lYybWMHK9g=s680-w680-h510" }
+    {
+      url: "https://localsegye.co.kr/news/data/20181123/p1065606094021438_835_thum.jpg",
+      location: "강원도 정선 하이원 스키장"
+    },
+    {
+      url: "https://i.namu.wiki/i/5ql2njneZCxFmtM0UvqHjLfFtRUGYSdTzaOt7iH2bRusXN3PGIbr_BjhxIuwYrCKZlUqc3nXOEA2hj0_L1XAtA.webp",
+      location: "경상북도 포항 호미곶 해맞이 광장"
+    },
+    {
+      url: "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/08/ac/d9/c4/caption.jpg?w=1200&h=1200&s=1",
+      location: "경기도 용인 한택 식물원"
+    },
+    {
+      url: "https://t1.daumcdn.net/cfile/tistory/9911A54D5A9DEC3D20",
+      location: "강원도 홍천 비발디 파크 온천"
+    },
+    {
+      url: "https://mblogthumb-phinf.pstatic.net/MjAyMjExMTRfODUg/MDAxNjY4NDEzOTk1MjU4.7ldFo8BIZlyYhzxkRLPnN8XOW9fuRxHQ6VgPlq-Dshcg.hBl7cKsU9KMfIm1R50xmuRoyfDMYH4Kr01TPYCyqNgcg.JPEG.ecolives/%EC%A3%BC%EC%84%9D_2022-11-14_171944.jpg?type=w800",
+      location: "강원도 대관령 양떼목장"
+    }
   ];
 
-  const carouselImageStyle = {
-
-    width: "1000px",
-    height: "400px"
+  const nextImage = () => {
+    let newIndex = (current === images.length - 1 ? 0 : current + 1);
+    setCurrent(newIndex);
   };
 
-  const renderArrowPrev = (onClickHandler, hasPrev, label) => (
-    <button onClick={onClickHandler} disabled={!hasPrev}>
-     <img src="./img/prev.png" alt="prev" />
-    </button>
-  );
+  const prevImage = () => {
+    let newIndex = (current === 0 ? images.length - 1 : current - 1);
+    setCurrent(newIndex);
+  };
 
-  const renderArrowNext = (onClickHandler, hasNext, label) => (
-    <button onClick={onClickHandler} disabled={!hasNext}>
-        <img src="./img/next.png" alt="next" />
-    </button>
-  );
-  
-  return (
-    <div>
-      <Carousel
-        renderArrowPrev={renderArrowPrev}
-        renderArrowNext={renderArrowNext}
-        showIndicators={false}
-      >
+  const jumpImage = (index) => {
+    setCurrent(index);
+  };
+
+  useEffect(() => {
+    const bubbles = document.getElementsByClassName("bubble-outer");
+    for (let i = 0; i < bubbles.length; i++) {
+      if (i === current) {
+        bubbles[i].style.borderColor = "#FFFFFF";
+      } else {
+        bubbles[i].style.borderColor = "#000000";
+      }
+    }
+  }, [current]);
+
+return (
+  <div>
+    <div className="image-text-container">
+      {images[current].location}
+    </div>
+    <div className="gallery-container">
+      <span className="button-prev" onClick={prevImage}>
+        chevron_left
+      </span>
+      <span className="button-next" onClick={nextImage}>
+        chevron_right
+      </span>
+      <div className="gallery-track">
         {images.map((image, index) => (
-          <div key={index}>
-            <img
-              src={image.url}
-              alt={`이미지 ${index + 1}`}
-              style={carouselImageStyle}
-            />
+          <div
+            className={`slide-image ${index === current ? "active" : ""}`}
+            style={{
+              backgroundImage: `url(${image.url})`,
+              transform: `translateX(${(index - current) * 100}%)`
+            }}
+            key={index}
+          >
+            <div className="image-overlay"></div>
           </div>
         ))}
-      </Carousel>
+      </div>
+      <div className="gallery-footer">
+        {images.map((image, index) => (
+          <div
+            className={`bubble-outer ${index === current ? "active" : ""}`}
+            onClick={() => jumpImage(index)}
+            id={index}
+            key={index}
+          >
+            <div className="bubble-inner" id={index}></div>
+          </div>
+        ))}
+      </div>
     </div>
-  );
-}
+   
+  </div>
+);
+};
 
-export default CarouselComponent;
+export default Carousel;

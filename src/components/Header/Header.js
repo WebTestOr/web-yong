@@ -21,10 +21,6 @@ const HeaderLink = styled(Link)`
   margin-right: 93px;
 `;
 
-const HeaderImgLink = styled(Link)`
-  display: inline-block;
-`;
-
 const HeaderImg = styled.img`
   vertical-align: middle;
 `;
@@ -42,9 +38,7 @@ const Header = ({ transparent }) => {
         <nav>
           <HeaderLink to="/search">Search</HeaderLink>
           <HeaderLink to="/Chatgpt">Chat GPT</HeaderLink>
-          <HeaderImgLink to="/">
-            <HeaderImg src='./img/logoImg.png' alt='로고이미지' />
-          </HeaderImgLink>
+          <HeaderImg src='./img/logoImg.png' alt='로고이미지' />
           <HeaderLink onClick={handleToggleMyList}>My List</HeaderLink>
           <HeaderLink to="/Review">Review</HeaderLink>
         </nav>

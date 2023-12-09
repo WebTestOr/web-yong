@@ -1,12 +1,15 @@
 import React from "react";
 import Header from "../components/Header/Header";
+import CarouselComponent from "../../src/components/Main/Carousel";
 
 function Main() {
   return ( 
-  <>
-   <Header/>
-  Main
-  </>
+    <>
+      <Header/>
+      <div>
+        <CarouselComponent />
+      </div>
+    </>
   );
 }
 

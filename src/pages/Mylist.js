@@ -8,7 +8,7 @@ const MyListWrapper = styled.div`
   width: 400px;
   height: 100vh;
   overflow-y: auto;
-  background-color: #fff;
+  background-color: #E8E5E5;
 `;
 
 const HeaderStyle = styled.div`
@@ -36,7 +36,7 @@ const MyList = () => {
   return (
     <MyListWrapper>
       <HeaderStyle>
-        <h1>즐겨찾기</h1>
+        <h1>My list</h1>
         <input
           type="text"
           value={newList}

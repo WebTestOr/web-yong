@@ -6,7 +6,7 @@ function Main() {
   return ( 
     <>
       <Header/>
-      <div>
+      <div style={{width:"1280px", height:"calc(100% - 176px)",overflowY:"auto", margin:"0 auto"}}>
         <CarouselComponent />
         <Box />
       </div>

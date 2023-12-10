@@ -44,7 +44,7 @@ const Carousel = () => {
     const bubbles = document.getElementsByClassName("bubble-outer");
     for (let i = 0; i < bubbles.length; i++) {
       if (i === current) {
-        bubbles[i].style.borderColor = "#FFFFFF";
+        bubbles[i].style.borderColor = "#8FAAD2";
       } else {
         bubbles[i].style.borderColor = "#000000";
       }
@@ -54,6 +54,7 @@ const Carousel = () => {
 return (
   <div>
     <div className="image-text-container">
+        <img src='../../img/locationIcon.png' alt='locationIcon' />
       {images[current].location}
     </div>
     <div className="gallery-container">

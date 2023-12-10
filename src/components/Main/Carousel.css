@@ -1,9 +1,16 @@
 @import url("https://fonts.googleapis.com/icon?family=Material+Icons");
 
 .image-text-container{
-    font-size: 25px;
-    padding-left: 3rem;
-    padding-top: 2rem;
+    font-size: 20px;
+    margin-left: 200px;
+    padding-top: 40px;
+    font-weight: bold;
+}
+
+.image-text-container img {
+    width: 28px;
+    height: 28px;
+    margin-right: 15px;
 }
 
 .gallery-container {
@@ -12,8 +19,9 @@
   align-items: center;
   justify-content: center;
   background-color: white;
-  padding: 3rem 1rem;
+  padding: 2rem 1rem;
   background-color: #FFFFFF;
+  height: 250px;
 }
 
 .button-prev,
@@ -36,13 +44,13 @@
 
 .button-prev:hover,
 .button-next:hover {
-  color: white;
+  color: #8FAAD2;
 }
 
 .gallery-track {
   aspect-ratio: 168/100;
   position: relative;
-  width: 80%;
+  width: 20%;
   overflow: hidden;
 }
 
@@ -50,9 +58,12 @@
   aspect-ratio: 168/100;
   position: absolute;
   background-size: cover;
+  background-position: center;
   width: 100%;
+  height: 100%;
   transition: transform 0.5s ease;
 }
+
 
 .gallery-footer {
   position: absolute;

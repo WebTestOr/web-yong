@@ -151,13 +151,6 @@ const SubmitBtn = styled.button`
   }
 `;
 
-export {
-  ReviewPage,
-  Reviewbox,
-  Reviewtext,
-  StyledButton1,
-  StyledButton2,
-  StyledButton3,
-  StyledButton4,
-  SubmitBtn,
-};
+
+export {ReviewPage, Reviewbox, Reviewtext, StyledButton1, StyledButton2, StyledButton3, StyledButton4, SubmitBtn};
+

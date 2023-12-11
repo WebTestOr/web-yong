@@ -9,6 +9,7 @@ import ReviewList from "../pages/ReviewList";
 import MyList from "../pages/Mylist";
 import TravelPlaceInfo from "../pages/Search/Search";
 
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -42,6 +43,10 @@ const router = createBrowserRouter([
       {
         path: "services",
         element: <MyList />,
+      },
+      {
+        path: "search",
+        element: <TravelPlaceInfo/>
       },
     ],
   },

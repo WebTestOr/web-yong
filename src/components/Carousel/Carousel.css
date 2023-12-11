@@ -1,0 +1,137 @@
+@import url("https://fonts.googleapis.com/icon?family=Material+Icons");
+
+.image-text-container{
+    font-size: 20px;
+   /* margin-left: 200px;*/
+    padding-top: 40px;
+    font-weight: bold;
+}
+
+.image-text-container img {
+    width: 28px;
+    height: 28px;
+    margin-right: 15px;
+}
+
+.gallery-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  padding: 2rem 1rem;
+  background-color: #FFFFFF;
+  /*height: 250px;*/
+}
+
+.button-prev,
+.button-next {
+  position: absolute;
+  font-family:"Material Icons";
+  font-size: 4rem;
+  cursor: pointer;
+  user-select: none;
+  transition: color 0.3s ease;
+}
+
+.button-prev {
+  left: 25%;
+}
+
+.button-next {
+  right: 25%;
+}
+
+.button-prev:hover,
+.button-next:hover {
+  color: #8FAAD2;
+}
+
+.gallery-track {
+  aspect-ratio: 168/100;
+  position: relative;
+  width: 30%;
+  overflow: hidden;
+}
+
+.slide-image {
+  aspect-ratio: 168/100;
+  position: absolute;
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.5s ease;
+}
+
+
+.gallery-footer {
+  position: absolute;
+  bottom: 1%;
+  display: flex;
+  flex-direction: row;
+  column-gap: 1rem;
+}
+
+.bubble-outer {
+  cursor: pointer;
+  border : 3px solid black;
+  border-radius: 8px;
+}
+
+.bubble-inner {
+  border: 5px solid transparent;
+  border-radius: 4px;
+}
+
+@keyframes slide-right-in {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0%);
+  }
+}
+
+@keyframes slide-left-in {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0%);
+  }
+}
+
+@keyframes slide-right-out {
+  from {
+    transform: translateX(0%);
+  }
+  to {
+    transform: translateX(100%);
+  }
+}
+
+@keyframes slide-left-out {
+  from {
+    transform: translateX(0%);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+.rightIn {
+  animation: slide-right-in 0.5s forwards;
+}
+
+.leftIn {
+  animation: slide-left-in 0.5s forwards;
+}
+
+.rightOut {
+  animation: slide-right-out 0.5s forwards;
+}
+
+.leftOut {
+  animation: slide-left-out 0.5s forwards;
+}

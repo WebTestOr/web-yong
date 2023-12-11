@@ -4,7 +4,7 @@ import styled from "styled-components";
 import MyList from "../../pages/Mylist";
 
 const HeaderStyle = styled.div`
-  width: 1920px;
+  width: 100%;
   height: 176px;
   text-align: center;
   background: ${(props) => (props.transparent ? "transparent" : "#8FAAD2")};
@@ -19,10 +19,6 @@ const HeaderLink = styled(Link)`
   line-height: normal;
   text-decoration: none;
   margin-right: 93px;
-`;
-
-const HeaderImgLink = styled(Link)`
-  display: inline-block;
 `;
 
 const HeaderImg = styled.img`

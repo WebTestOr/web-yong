@@ -8,7 +8,7 @@ const MyListWrapper = styled.div`
   width: 400px;
   height: 100vh;
   overflow-y: auto;
-  background-color: #E8E5E5;
+  background-color: #e8e5e5;
 `;
 
 const HeaderStyle = styled.div`
@@ -23,16 +23,6 @@ const MyList = () => {
   const [newExpense, setNewExpense] = useState("");
   const [totalExpenses, setTotalExpenses] = useState(0);
   const [showTotal, setShowTotal] = useState(false);
-
-  useEffect(() => {
-    const place = JSON.parse(localStorage.getItem("place"));
-    if (place && place.title) {
-      setList((prevList) => [
-        ...prevList,
-        { title: place.title, expense: 0, checked: false },
-      ]);
-    }
-  }, [list]);
 
   const addList = () => {
     if (newList.trim() !== "" && !isNaN(newExpense)) {

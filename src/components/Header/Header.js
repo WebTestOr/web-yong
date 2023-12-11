@@ -1,13 +1,13 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
-import MyList from '../../pages/Mylist';
+import MyList from "../../pages/Mylist";
 
 const HeaderStyle = styled.div`
-  width: 1920px;
+  width: 100%;
   height: 176px;
   text-align: center;
-  background: ${(props) => (props.transparent ? 'transparent' : '#8FAAD2')};
+  background: ${(props) => (props.transparent ? "transparent" : "#8FAAD2")};
 `;
 
 const HeaderLink = styled(Link)`
@@ -19,10 +19,6 @@ const HeaderLink = styled(Link)`
   line-height: normal;
   text-decoration: none;
   margin-right: 93px;
-`;
-
-const HeaderImgLink = styled(Link)`
-  display: inline-block;
 `;
 
 const HeaderImg = styled.img`
@@ -43,7 +39,7 @@ const Header = ({ transparent }) => {
           <HeaderLink to="/search">Search</HeaderLink>
           <HeaderLink to="/Chatgpt">Chat GPT</HeaderLink>
           <HeaderImgLink to="/">
-            <HeaderImg src='./img/logoImg.png' alt='로고이미지' />
+            <HeaderImg src="./img/logoImg.png" alt="로고이미지" />
           </HeaderImgLink>
           <HeaderLink onClick={handleToggleMyList}>My List</HeaderLink>
           <HeaderLink to="/Review">Review</HeaderLink>

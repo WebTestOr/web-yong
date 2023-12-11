@@ -7,19 +7,11 @@ import {
   StyledButton3,
   StyledButton4,
 } from "../../components/Review/Reviewcomponent";
-import { useNavigate } from "react-router-dom";
 
 export default function TravelPlaceInfo() {
   const [places, setPlaces] = useState([]);
   const [searchText, setSearchText] = useState("");
   const [currentIndex, setCurrentIndex] = useState(0);
-  const navigate = useNavigate();
-
-  const handleListAdd = (title) => {
-    localStorage.setItem("user", JSON.stringify({ title }));
-    navigate("", { state: { title } });
-    console.log("title:", title);
-  };
 
   const fetchData = async () => {
     try {
@@ -136,12 +128,7 @@ export default function TravelPlaceInfo() {
                     alt={`${place.title}`}
                     className="placeImg"
                   />
-                  <h2>
-                    {place.title}
-                    <button onClick={() => handleListAdd(place.title)}>
-                      추가하기
-                    </button>
-                  </h2>
+                  <h2>{place.title}</h2>
                   <p>
                     주소: {place.addr1} {place.addr2}
                   </p>

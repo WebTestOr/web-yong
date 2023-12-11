@@ -35,11 +35,11 @@
 }
 
 .button-prev {
-  left: 25%;
+  left: 5%;
 }
 
 .button-next {
-  right: 25%;
+  right: 5%;
 }
 
 .button-prev:hover,
@@ -50,7 +50,7 @@
 .gallery-track {
   aspect-ratio: 168/100;
   position: relative;
-  width: 30%;
+  width: 70%;
   overflow: hidden;
 }
 

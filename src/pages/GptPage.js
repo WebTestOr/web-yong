@@ -1,4 +1,4 @@
-// ChatGpt.js
+//Gpt 페이지
 import React, { useState } from "react";
 import Header from "../components/Header/Header";
 import { HeaderBorder } from "../components/Header/Component";
@@ -26,7 +26,6 @@ export default function ChatGpt() {
     <>
       <Header transparent />
       <HeaderBorder />
-
       <GptMainBox>
         <GptContainer>
           <GptTitle>

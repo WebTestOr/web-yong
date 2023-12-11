@@ -1,9 +1,10 @@
+// 출처 - 웹개발응용 13주차 강의 교안 활용
 import axios from 'axios';
 
 const chat = async (prompt, onMessage) => {
   const headers = {
     'Content-Type': 'application/json',
-    Authorization: 'Bearer sk-',
+    Authorization: 'Bearer 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',
   };
   const messages = [{ role: 'user', content: prompt }];
 
@@ -28,57 +29,4 @@ const chat = async (prompt, onMessage) => {
     });
 };
 
-const chatHistory = async (prompt, messages, onMessage) => {
-  const headers = {
-    'Content-Type': 'application/json',
-    Authorization: 'Bearer sk-',
-  };
-  console.log('과거기역 : ', messages);
-  console.log('질의 : ', prompt);
-  const gg = [...messages, { role: 'user', content: prompt }];
-  console.log('메시지 : ', gg);
-
-  axios
-    .post(
-      'https://api.openai.com/v1/chat/completions',
-      {
-        model: 'gpt-3.5-turbo',
-        temperature: 0.5,
-        messages: gg,
-      },
-      { headers, timeout: 15000 }
-    )
-    .then((response) => {
-      console.log('응답 : ', response.data.choices[0].message.content);
-      onMessage(response.data.choices[0].message.content);
-    })
-    .catch((err) => {
-      console.log(err);
-      onMessage(err.message);
-    });
-};
-
-const dalle = async (prompt, onMessage, n = 1, size = '256x256') => {
-  const headers = {
-    'Content-Type': 'application/json',
-    Authorization: 'Bearer sk-',
-  };
-
-  axios
-    .post(
-      'https://api.openai.com/v1/images/generations',
-      {
-        prompt: prompt,
-        n: n,
-        size: size,
-      },
-      { headers, timeout: 10000 }
-    )
-    .then((response) => {
-      console.log(response);
-      onMessage(response.data.data);
-    })
-    .catch(console.log);
-};
-
-export { chat, chatHistory, dalle };
+export { chat };

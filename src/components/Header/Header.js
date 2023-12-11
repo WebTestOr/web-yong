@@ -25,9 +25,11 @@ const HeaderImg = styled.img`
   vertical-align: middle;
 `;
 
+// 배경색 투명 여부 props
 const Header = ({ transparent }) => {
+  // showMyList 상태 관리
   const [showMyList, setShowMyList] = useState(false);
-
+  // 사용자의 리스트 표시 여부를 토글
   const handleToggleMyList = () => {
     setShowMyList(!showMyList);
   };

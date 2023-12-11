@@ -1,3 +1,4 @@
+// 메인 페이지
 import React from "react";
 import Header from "../components/Header/Header";
 import CarouselComponent from "../../src/components/Carousel/Carousel";

@@ -11,4 +11,21 @@ align-items: center;
 justify-content: center; 
 `;
 
-export {ReviewListBox};
+const ReviewTable = styled.table`
+width: 100%;
+border-collapse: collapse;
+margin-top: 20px;
+
+th, td {
+  padding: 10px;
+  border: 1px solid #ddd;
+  text-align: left;
+}
+
+th {
+  background-color: #f2f2f2;
+}
+`;
+
+
+export {ReviewListBox, ReviewTable};

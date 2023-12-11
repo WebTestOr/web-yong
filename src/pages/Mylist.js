@@ -29,7 +29,7 @@ const MyList = ({ places, setPlaces, myList, setMyList }) => {
 
   const deleteList = (index) => {
     const updatedList = myList.filter((_, i) => i !== index);
-    setMyList(updatedList); // setMyList로 업데이트
+    setMyList(updatedList); 
   };
 
   return (

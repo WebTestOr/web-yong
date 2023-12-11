@@ -1,3 +1,4 @@
+// 리뷰 확인 페이지
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { HeaderBorder } from '../components/Header/Component';

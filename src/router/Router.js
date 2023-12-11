@@ -1,8 +1,8 @@
+// 라우터 관리
 import React from "react";
 import { createBrowserRouter } from "react-router-dom";
 import Root from "../pages/Root";
 import ChatGpt from "../pages/GptPage";
-import GptTest from "../pages/test/GptTest";
 import AppGptChat from "../pages/AppGptChat";
 import Review from "../pages/Review";
 import ReviewList from "../pages/ReviewList";
@@ -18,11 +18,6 @@ const router = createBrowserRouter([
       {
         path: "ChatGpt",
         element: <ChatGpt />,
-      },
-      {
-        path: "GptTest",
-
-        element: <GptTest />,
       },
       {
         path: "GptChat",

@@ -8,7 +8,7 @@ font-family: Pretendard;
 font-size: 32px;
 font-style: normal;
 font-weight: 700;
-line-height: 24px; /* 75% */
+line-height: 24px; 
 letter-spacing: -0.32px;
 `;
 
@@ -34,7 +34,7 @@ const GptContext = styled.text`
   font-size: 24px;
   font-style: normal;
   font-weight: 700;
-  line-height: 24px; /* 100% */
+  line-height: 24px; 
   letter-spacing: -0.24px;
   margin: 20px;
 `;

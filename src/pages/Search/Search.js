@@ -1,3 +1,4 @@
+// 여행지 찾기 페이지
 import React, { useState } from "react";
 import Header from "../../components/Header/Header";
 import "./Search.css";

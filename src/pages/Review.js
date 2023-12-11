@@ -1,3 +1,4 @@
+// 리뷰 작성 페이지
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ReviewPage, Reviewbox, Reviewtext, StyledButton1, StyledButton2, StyledButton3, StyledButton4, SubmitBtn } from '../components/Review/Reviewcomponent';
@@ -70,10 +71,12 @@ const Review = () => {
         <input type='text' onChange={handleTextInputChange} />
       </div>
       </div>
-      <SubmitBtn onClick={handleSubmit}>Submit</SubmitBtn>
-      <Link to="/reviewlist">
-            <button>후기 보러 가기</button>
-      </Link>
+      <div className='ReviewBtn'>
+        <SubmitBtn onClick={handleSubmit}>Submit</SubmitBtn>
+        <Link to="/reviewlist">
+            <SubmitBtn>리뷰 보기</SubmitBtn>
+        </Link>
+      </div>
     </Reviewbox>
     </ReviewPage>
     </>

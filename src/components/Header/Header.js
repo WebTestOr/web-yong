@@ -38,9 +38,9 @@ const Header = ({ transparent }) => {
         <nav>
           <HeaderLink to="/search">Search</HeaderLink>
           <HeaderLink to="/Chatgpt">Chat GPT</HeaderLink>
-          <HeaderImgLink to="/">
+          <HeaderLink to="/">
             <HeaderImg src="./img/logoImg.png" alt="로고이미지" />
-          </HeaderImgLink>
+          </HeaderLink>
           <HeaderLink onClick={handleToggleMyList}>My List</HeaderLink>
           <HeaderLink to="/Review">Review</HeaderLink>
         </nav>

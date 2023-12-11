@@ -1,9 +1,21 @@
 import styled from "styled-components";
 
+const GptTitle = styled.text`
+color: #000;
+text-align: center;
+font-feature-settings: 'calt' off;
+font-family: Pretendard;
+font-size: 32px;
+font-style: normal;
+font-weight: 700;
+line-height: 24px; /* 75% */
+letter-spacing: -0.32px;
+
 const GptMainBox = styled.div`
   display: flex;
   height: 80vh;
 `;
+
 const GptContainer = styled.div`
   display: flex;
   flex-direction: column;
@@ -25,12 +37,14 @@ const GptContext = styled.text`
   letter-spacing: -0.24px;
   margin: 20px;
 `;
+
 const GptBox = styled.div`
   width: 70%;
   height: 80%;
   flex=shrink: 0;
   background: linear-gradient(180deg, #afe6e4 0%, rgba(175, 230, 228, 0) 100%);
 `;
+
 const GptTitle = styled.text`
   color: #000;
   font-feature-settings: "calt" off;

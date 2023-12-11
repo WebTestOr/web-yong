@@ -7,12 +7,21 @@ import {
   StyledButton3,
   StyledButton4,
 } from "../../components/Review/Reviewcomponent";
+import MyList from "../Mylist";
 import { useNavigate } from "react-router-dom";
 
 export default function TravelPlaceInfo() {
   const [places, setPlaces] = useState([]);
   const [searchText, setSearchText] = useState("");
   const [currentIndex, setCurrentIndex] = useState(0);
+
+  const [list, setList] = useState([]);
+  const [showMyList, setShowMyList] = useState(false); 
+
+  const fetchData = async () => {
+    try {
+      const response = await fetch( ``);
+
   const navigate = useNavigate();
 
   const handleListAdd = (title) => {
@@ -24,6 +33,7 @@ export default function TravelPlaceInfo() {
   const fetchData = async () => {
     try {
       const response = await fetch();
+
 
       const data = await response.json();
       const items = data.response.body.items.item;
@@ -54,9 +64,22 @@ export default function TravelPlaceInfo() {
   const handleSearchText = (text) => {
     setSearchText(text);
   };
+
+  const handleAddToList = () => {
+    if (currentIndex >= 0 && currentIndex < places.length) {
+      const selectedPlace = places[currentIndex];
+      console.log("선택한 장소:", selectedPlace);
+      console.log("목록에 추가 전 - list:", list);
+
+      setList((prevList) => [...prevList, { title: selectedPlace.title, type: 'place' }]);
+  
+      console.log("목록에 추가 후 - list:", list);
+    }
+  };
+
   return (
     <div>
-      <Header />
+      <Header showMyList={showMyList} setShowMyList={setShowMyList} />
       <div className="Main">
         <aside className="SearchForm">
           <label>
@@ -72,7 +95,7 @@ export default function TravelPlaceInfo() {
               className="SearchButton"
               onClick={handleSubmit}
             >
-              <img src="./img/search.png" className="searchImg" />
+              <img src="./img/search.png" className="searchImg" alt="찾기이미지" />
             </button>
           </label>
           <div className="buttonList">
@@ -145,6 +168,10 @@ export default function TravelPlaceInfo() {
                   <p>
                     주소: {place.addr1} {place.addr2}
                   </p>
+
+                  <button onClick={handleAddToList} className="addToListButton">
+                    추가하기
+                  </button>
                 </li>
               ))}
           </ul>
@@ -153,6 +180,12 @@ export default function TravelPlaceInfo() {
           </button>
         </main>
       </div>
+      <MyList
+      places={places}
+      setPlaces={setPlaces}
+      myList={list}
+      setMyList={setList}
+      />
     </div>
   );
 }

@@ -17,6 +17,14 @@ const HeaderStyle = styled.div`
   text-align: center;
 `;
 
+const MyList = ({ places, setPlaces, myList, setMyList }) => {
+  const [newList, setNewList] = useState('');
+
+  const addList = () => {
+    if (newList.trim() !== '') {
+      setMyList([...myList, { title: newList, type: 'list' }]);
+      setNewList('');
+
 const MyList = () => {
   const [list, setList] = useState([]);
   const [newList, setNewList] = useState("");
@@ -44,8 +52,8 @@ const MyList = () => {
   };
 
   const deleteList = (index) => {
-    const updatedList = list.filter((_, i) => i !== index);
-    setList(updatedList);
+    const updatedList = myList.filter((_, i) => i !== index);
+    setMyList(updatedList); 
   };
 
   const handleCheck = (index) => {
@@ -82,14 +90,18 @@ const MyList = () => {
         <button onClick={addList}> + 즐겨찾기 추가</button>
       </HeaderStyle>
       <div>
-        {list.map((item, index) => (
+        {myList && myList.map((item, index) => (
           <p key={index}>
+
+            {index + 1}. {item.type === 'place' ? item.title : item.title}
+
             <input
               type="checkbox"
               checked={item.checked}
               onChange={() => handleCheck(index)}
             />
             {item.title} - 지출: {item.expense}원
+
             <button onClick={() => deleteList(index)}>삭제</button>
           </p>
         ))}
